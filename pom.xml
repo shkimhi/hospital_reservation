@@ -8,7 +8,7 @@
         <version>2.7.6</version>
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
-    <groupId>com.ex</groupId>
+    <groupId>com.ex.lifeSemantics</groupId>
     <artifactId>LifeSemantics</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>LifeSemantics</name>
