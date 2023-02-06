@@ -3,7 +3,6 @@ package com.ex.lifesemantics.dao;
 import com.ex.lifesemantics.model.MemberVO;
 import org.springframework.stereotype.Repository;
 
-@Repository
 public interface IMemberDAO {
 
     public String loginCheck(String id);
