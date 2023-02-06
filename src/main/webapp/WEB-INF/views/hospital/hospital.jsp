@@ -74,7 +74,7 @@
                         <label for="userHp">전화번호</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control mt-2" id="userSymptom" name="userSymptom" style="height: 100px;" placeholder="증상" >
+                        <textarea type="text" class="form-control mt-2" id="userSymptom" name="userSymptom" style="height: 100px;" placeholder="증상" ></textarea>
                         <label for="userSymptom">증상</label>
                     </div>
                     <div class="form-floating">

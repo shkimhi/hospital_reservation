@@ -30,7 +30,7 @@
                         <label for="userHp_re">전화번호</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control mt-2" id="userSymptom_re" name="userSymptom" value="${ho.userSymptom}"  style="height: 100px;" placeholder="증상">
+                        <textarea type="text" class="form-control mt-2" id="userSymptom_re" name="userSymptom" value=""  style="height: 100px;" placeholder="증상">${ho.userSymptom}</textarea>
                         <label for="userSymptom_re">증상</label>
                     </div>
                     <div class="form-floating">
