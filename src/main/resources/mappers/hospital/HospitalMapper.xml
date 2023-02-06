@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "https://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="com.ex.lifesemantics.dao.IHospitalDAO">
+    <select id="showreservation" parameterType="string"  resultType="com.ex.lifesemantics.model.HospitalVO">
+        select * from hospitalreservation where userName = #{userName} order by userDate
+    </select>
+
+    <insert id="Hospitalinsert" useGeneratedKeys="true" keyProperty="rNo" parameterType="com.ex.lifesemantics.model.HospitalVO">
+        insert into
+        hospitalreservation ( rNo, clCdNm, telno, addr, yadmNm, userName, userHp, userSymptom, userDate)
+        select #{rNo},#{clCdNm},#{telno},#{addr},#{yadmNm},#{userName},#{userHp},#{userSymptom},#{userDate}
+        from dual
+        where not exists (
+        select *
+        from hospitalreservation
+        where yadmNm = #{yadmNm} and userDate = #{userDate}
+        )
+    </insert>
+        <!--
+                from (select date_format(#{userDate}, '%Y-%m-%d') as formatted_user_date) as tmp
+                where not exists (
+                select * from hospitalreservation
+                where yadmNm = #{yadmNm} and date_format(userDate, '%Y-%m-%d') = formatted_user_date
+                );
+        -->
+
+
+    <select id="detailreservation" parameterType="int" resultType="com.ex.lifesemantics.model.HospitalVO">
+        select * from hospitalreservation where rNo = #{rNo}
+
+    </select>
+
+    <delete id="deletehospital" parameterType="int">
+        delete from hospitalreservation where rNo = #{rNo}
+    </delete>
+
+    <update id="updatehospital" parameterType="com.ex.lifesemantics.model.HospitalVO">
+        update hospitalreservation
+        set userHp= #{userHp}, userSymptom= #{userSymptom}, userDate= #{userDate}
+        where rNo= #{rNo}
+    </update>
+
+
+
+</mapper>
