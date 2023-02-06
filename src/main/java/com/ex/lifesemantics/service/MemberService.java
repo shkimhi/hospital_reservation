@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import javax.annotation.Resource;
 import java.util.HashMap;
 
 @Service
@@ -14,7 +15,7 @@ public class MemberService implements IMemberService {
 
 
 @Autowired
-@Qualifier("IMemberDAO")
+@Resource(name = "com.ex.lifesemantics.dao.IMemberDAO")
 IMemberDAO dao;
 
     @Autowired
