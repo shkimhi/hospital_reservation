@@ -6,6 +6,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 
 @SpringBootApplication
+@ComponentScan(basePackages = {"com.ex.lifesemantics"})
 @MapperScan(basePackages = {"com.ex.lifeSemantics"})
 public class LifeSemanticsApplication {
 
