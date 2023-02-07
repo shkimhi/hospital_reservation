@@ -26,7 +26,7 @@
                         <label for="userName_re">이름</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control mt-2" id="userHp_re" name="userHp" value="${ho.userHp}"  placeholder="전화번호">
+                        <input type="text" class="form-control mt-2 onlyNumber" id="userHp_re" name="userHp" value="${ho.userHp}"  placeholder="전화번호" maxlength='11'>
                         <label for="userHp_re">전화번호</label>
                     </div>
                     <div class="form-floating">
@@ -34,7 +34,7 @@
                         <label for="userSymptom_re">증상</label>
                     </div>
                     <div class="form-floating">
-                        <input type="date" class="form-control mt-2" id="userDate_re" name="userDate" value="${ho.userDate}"  placeholder="예약일시">
+                        <input type="date" class="form-control mt-2" id="userDate_re" name="userDate" value="${ho.userDate}"  placeholder="예약일시" onchange="setMinValue()">
                         <label for="userDate_re">예약 일시</label>
                     </div>
                 </div>

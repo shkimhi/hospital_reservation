@@ -70,7 +70,7 @@
                         <label for="userName">이름</label>
                     </div>
                     <div class="form-floating">
-                        <input type="text" class="form-control mt-2" id="userHp" name="userHp" placeholder="전화번호" >
+                        <input type="text" class="form-control mt-2 onlyNumber" id="userHp" name="userHp" placeholder="전화번호" maxlength='11'>
                         <label for="userHp">전화번호</label>
                     </div>
                     <div class="form-floating">
@@ -78,7 +78,7 @@
                         <label for="userSymptom">증상</label>
                     </div>
                     <div class="form-floating">
-                        <input type="datetime-local" class="form-control mt-2" id="userDate" name="userDate" placeholder="예약일시" >
+                        <input type="datetime-local" class="form-control mt-2" id="userDate" name="userDate" placeholder="예약일시" onchange="setMinValue()">
                         <label for="userDate">예약 일시</label>
                     </div>
                 </div>
@@ -105,6 +105,26 @@
     </div>
 
 </div> <%--container--%>
+<script>
+    $(".onlyNumber").keyup(function(event){
+        if (!(event.keyCode >=37 && event.keyCode<=40)) {
+            var inputVal = $(this).val();
+            $(this).val(inputVal.replace(/[^0-9\s]/gi,''));
+        }
+    });
+    let dateElement = document.getElementById('userDate');
+    let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -5);
+    dateElement.value = date;
+    dateElement.setAttribute("min", date);
+
+    function setMinValue() {
+        if(dateElement.value < date) {
+            alert('현재 시간보다 이전의 날짜는 설정할 수 없습니다.');
+            dateElement.value = date;
+        }
+    }
+
+</script>
 
 <script>
     $(document).ready(function(){
@@ -203,6 +223,16 @@
                             }
                             userName.value = name[0] + maskedName + name[name.length - 1];
                         }
+                        $(".onlyNumber").keyup(function(event){
+                            if (!(event.keyCode >=37 && event.keyCode<=40)) {
+                                var inputVal = $(this).val();
+                                $(this).val(inputVal.replace(/[^0-9\s]/gi,''));
+                            }
+                        });
+                        let dateElement = document.querySelector('#userDate_re');
+                        let date = new Date(new Date().getTime() - new Date().getTimezoneOffset() * 60000).toISOString().slice(0, -14);
+                        dateElement.setAttribute("min", date);
+
                     });
                     $('#hospitaldetail').html(result);
                 },
