@@ -205,9 +205,6 @@
                         }
                     });
                     $('#hospitaldetail').html(result);
-
-
-
                 },
                 error: function() {
                     alert("실패");
@@ -254,8 +251,6 @@
                     imageLoader(f);
                 }
             }
-
-
             // 탐색기에서 드래그앤 드롭 사용
             attZone.addEventListener('dragenter', function(e){
                 e.preventDefault();
@@ -277,10 +272,7 @@
                 for(f of files){
                     imageLoader(f);
                 }
-
             }, false)
-
-
 
             /*첨부된 이미리즐을 배열에 넣고 미리보기 */
             imageLoader = function(file){

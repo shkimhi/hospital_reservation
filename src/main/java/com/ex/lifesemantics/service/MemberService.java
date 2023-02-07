@@ -5,6 +5,7 @@ import com.ex.lifesemantics.model.MemberVO;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
@@ -15,7 +16,7 @@ public class MemberService implements IMemberService {
 
 
 @Autowired
-@Resource(name = "com.ex.lifesemantics.dao.IMemberDAO")
+@Qualifier("IMemberDAO")
 IMemberDAO dao;
 
     @Autowired
